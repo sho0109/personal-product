@@ -49,7 +49,7 @@ class ItemController extends Controller
         $items = $query ->get();
         return view('item.index', compact('items'));
     }
-
+//
     /**
      * 商品登録
      */
