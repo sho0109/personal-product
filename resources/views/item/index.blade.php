@@ -4,6 +4,20 @@
 
 @section('content_header')
     <h1>商品一覧</h1>
+    <!-- 検索 -->
+    <div class="card card-primary">
+        <form method = "POST" >
+            <div class="card-body">
+                @csrf
+                <div class="form-group">
+                    <input type="search" placeholder="検索キーワード" name="keyword">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">検索</button>
+            </div>
+        </form>
+    </div>
 @stop
 
 @section('content')
@@ -37,6 +51,15 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td>
+                                        <div class="card-tools">
+                                            <div class="input-group input-group-sm">
+                                                <div class="input-group-append">
+                                                    <a href="{{ url('items/edit/'.$item->id) }}" class="btn btn-default">商品情報編集</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
